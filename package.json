@@ -1,0 +1,17 @@
+{
+  "name": "gtp-realtime-screen-reader",
+  "private": true,
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend"
+  ],
+  "scripts": {
+    "build": "npm run build -w apps/backend && npm run build -w apps/frontend",
+    "dev": "concurrently \"npm run dev -w apps/backend\" \"npm run dev -w apps/frontend\"",
+    "lint": "npm run lint -w apps/backend && npm run lint -w apps/frontend",
+    "test": "npm run test -w apps/backend && npm run test -w apps/frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

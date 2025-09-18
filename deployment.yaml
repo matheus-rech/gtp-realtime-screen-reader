@@ -1,0 +1,42 @@
+services:
+  frontend:
+    replicas: 3
+    image: ghcr.io/example/realtime-frontend:latest
+    resources:
+      limits:
+        memory: 512Mi
+        cpu: 250m
+      requests:
+        memory: 256Mi
+        cpu: 125m
+    env:
+      - name: NEXT_PUBLIC_BACKEND_URL
+        value: http://backend:4000
+  backend:
+    replicas: 2
+    image: ghcr.io/example/realtime-backend:latest
+    ports:
+      - 4000
+    resources:
+      limits:
+        memory: 1Gi
+        cpu: 500m
+      requests:
+        memory: 512Mi
+        cpu: 250m
+    env:
+      - name: OPENAI_API_KEY
+        valueFrom:
+          secretKeyRef:
+            name: openai
+            key: apiKey
+      - name: REDIS_URL
+        value: redis://redis:6379
+      - name: MAX_SESSIONS
+        value: '100'
+      - name: FRAME_RATE_LIMIT
+        value: '2'
+  redis:
+    replicas: 1
+    image: redis:7
+    persistence: true
