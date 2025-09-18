@@ -38,8 +38,8 @@ export class RealtimeSessionManager {
           throw new Error(`Failed to create ephemeral key: ${response.status} ${payload}`);
         }
 
-        const payload = (await response.json()) as EphemeralKeyResponse;
-        return payload;
+        return (await response.json()) as EphemeralKeyResponse;
+
       } catch (error) {
         logger.error('Error creating ephemeral key', { error, attempt });
         if (attempt === MAX_RETRIES - 1) {
