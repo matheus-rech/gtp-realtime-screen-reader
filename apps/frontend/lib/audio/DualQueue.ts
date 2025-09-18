@@ -1,6 +1,6 @@
 'use client';
 
-export class DualQueue<T> {
+export class Queue<T> {
   private readonly items: T[] = [];
 
   enqueue(item: T): void {
