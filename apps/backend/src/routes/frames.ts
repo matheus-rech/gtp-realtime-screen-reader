@@ -63,8 +63,7 @@ const buildMockEmbedding = (base64: string): number[] => {
   const bytes = Buffer.from(base64.slice(0, 64));
   const embedding: number[] = [];
   for (let i = 0; i < bytes.length; i += 4) {
-    // eslint-disable-next-line security/detect-object-injection
-    embedding.push(bytes[i] / 255);
+    embedding.push(bytes.at(i)! / 255);
   }
   return embedding;
 };
