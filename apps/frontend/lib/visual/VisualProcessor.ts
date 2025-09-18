@@ -146,10 +146,15 @@ export class VisualProcessor {
   }
 
   private async toFrame(canvas: HTMLCanvasElement, source: FrameSource): Promise<VisualFrame> {
-    const blob: Blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/jpeg', this.compressionQuality));
-    if (!blob) {
-      throw new Error('Failed to create blob from canvas');
-    }
+    const blob: Blob = await new Promise((resolve, reject) => {
+      canvas.toBlob((blob) => {
+        if (blob) {
+          resolve(blob);
+        } else {
+          reject(new Error('Failed to create blob from canvas'));
+        }
+      }, 'image/jpeg', this.compressionQuality);
+    });
     const base64 = await this.blobToBase64(blob);
     const { width, height } = canvas;
     return { base64, width, height, source, capturedAt: Date.now() };
