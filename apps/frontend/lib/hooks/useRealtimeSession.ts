@@ -61,11 +61,11 @@ export const useRealtimeSession = (initialMode: AssistantMode): UseRealtimeSessi
       const payload = JSON.parse(event.data) as { type: string; description?: string; frame?: { capturedAt: number; source: 'screen' | 'camera' } };
       if (payload.type === 'visual-context' && payload.description && payload.frame) {
         setVisualContexts((contexts) => {
-          const next = [
-            { description: payload.description, capturedAt: payload.frame.capturedAt, source: payload.frame.source },
-            ...contexts
-          ].slice(0, 10);
-          return next;
+          return [
+                      { description: payload.description, capturedAt: payload.frame.capturedAt, source: payload.frame.source },
+                      ...contexts
+                    ].slice(0, 10);
+
         });
       }
       if (payload.type === 'interrupted') {
