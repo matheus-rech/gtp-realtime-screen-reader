@@ -205,7 +205,7 @@ export const useRealtimeSession = (initialMode: AssistantMode): UseRealtimeSessi
         }
         client.sendRealtime?.({
           type: 'input_audio_buffer.append',
-          audio: btoa(String.fromCharCode(...new Uint8Array(chunk.data)))
+          audio: btoa(new Uint8Array(chunk.data).reduce((data, byte) => data + String.fromCharCode(byte), ''))
         });
         client.sendRealtime?.({ type: 'input_audio_buffer.commit' });
       }
