@@ -178,7 +178,7 @@ export function AssistantApp() {
         <div>
           <h1 className="text-3xl font-semibold">Realtime Vision Assistant</h1>
           <p className="text-white/60">
-            Low-latency multimodal assistant combining OpenAI&apos;s realtime voice API with continuous visual perception.
+            Low-latency multimodal assistant combining OpenAI's realtime voice API with continuous visual perception.
           </p>
         </div>
         <div className="flex flex-col items-start gap-3 md:items-end">
