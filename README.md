@@ -1,1 +1,0 @@
-# gtp-realtime-screen-reader
