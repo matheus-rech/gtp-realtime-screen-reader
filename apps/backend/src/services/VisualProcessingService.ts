@@ -73,7 +73,9 @@ export class VisualProcessingService {
       return cached.description;
     }
 
-    // placeholder description when offline - in production call OpenAI vision
+    // TODO: Replace this placeholder implementation with actual OpenAI Vision API calls.
+    // This is a temporary solution for development/offline mode.
+    // Consider adding a configuration flag to control placeholder vs. real API usage.
     const description = quick
       ? `Quick visual snapshot (${frame.source}) at ${new Date(frame.capturedAt).toLocaleTimeString()}`
       : `Detailed visual description for ${frame.source} frame captured at ${new Date(frame.capturedAt).toISOString()}`;
