@@ -112,7 +112,7 @@ export const useRealtimeSession = (initialMode: AssistantMode): UseRealtimeSessi
     });
 
     client.on('conversation.item.created', (event: any) => {
-      const item = event.item;
+      const {item} = event;
       if (item?.role === 'user' && item?.content?.[0]?.type === 'input_text') {
         setTranscript((messages) => [
           {
