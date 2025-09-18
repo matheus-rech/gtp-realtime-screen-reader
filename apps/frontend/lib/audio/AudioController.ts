@@ -27,7 +27,8 @@ export class AudioController {
       return;
     }
     this.stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    this.mediaRecorder = new MediaRecorder(this.stream, {
+        return (await response.json()) as EphemeralKeyResponse;
+
       mimeType: 'audio/webm;codecs=opus'
     });
 
