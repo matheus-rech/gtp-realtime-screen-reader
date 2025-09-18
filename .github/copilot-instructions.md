@@ -1,4 +1,4 @@
-# Copilot Instructions for gtp-realtime-screen-reader
+# Copilot Instructions for gpt-realtime-screen-reader
 
 ## Repository Overview
 
