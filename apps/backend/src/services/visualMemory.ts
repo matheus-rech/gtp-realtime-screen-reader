@@ -39,8 +39,7 @@ export class VisualMemory {
 
 const cosineSimilarity = (a: number[], b: number[]): number => {
   const dot = a.reduce((sum, value, index) => {
-    // eslint-disable-next-line security/detect-object-injection
-    const other = b[index] ?? 0;
+    const other = b.at(index) ?? 0;
     return sum + value * other;
   }, 0);
   const magnitudeA = Math.sqrt(a.reduce((sum, value) => sum + value * value, 0));
