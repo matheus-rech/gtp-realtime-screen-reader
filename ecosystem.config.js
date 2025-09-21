@@ -22,7 +22,7 @@ module.exports = {
       name: 'gtp-backend',
       cwd: './apps/backend',
       script: 'npm',
-      args: 'run dev',
+      args: 'start',
       instances: 1,
       autorestart: true,
       watch: false,
