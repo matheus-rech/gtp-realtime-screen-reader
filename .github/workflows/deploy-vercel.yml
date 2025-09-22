@@ -36,3 +36,5 @@ jobs:
         vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
         working-directory: ./apps/frontend
         vercel-args: --prod
+      env:
+        NEXT_PUBLIC_BACKEND_URL: ${{ secrets.BACKEND_URL || 'https://your-backend-url.com' }}
