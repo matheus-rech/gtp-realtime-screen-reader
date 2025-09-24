@@ -1,9 +1,6 @@
 {
-  "buildCommand": "npx next build",
-  "outputDirectory": ".next",
-  "framework": "nextjs",
-  "installCommand": "npm install",
-  "devCommand": "npx next dev",
+  "installCommand": "cd ../.. && npm install",
+  "buildCommand": "cd ../.. && npm run build --workspace frontend",
   "headers": [
     {
       "source": "/(.*)",

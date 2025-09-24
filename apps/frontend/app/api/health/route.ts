@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
-export const dynamic = 'force-dynamic';
+// Only use force-dynamic when not doing static export
+export const dynamic = process.env.STATIC_EXPORT === 'true' ? undefined : 'force-dynamic';
 
 export function GET() {
   return NextResponse.json(
