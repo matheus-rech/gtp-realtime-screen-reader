@@ -6,7 +6,11 @@ export class ResilientConnection {
   private reconnectAttempts = 0;
   private readonly maxBackoff = 10_000;
 
-  constructor(private readonly socket: WebSocket) {}
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  constructor(_socket: WebSocket) {
+    // Socket parameter preserved for future resilient connection features
+    // Currently not used as connection management is handled externally
+  }
 
   async handleDisconnect(): Promise<void> {
     this.reconnectAttempts += 1;
