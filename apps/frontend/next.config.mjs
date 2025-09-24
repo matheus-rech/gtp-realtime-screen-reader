@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Server Actions are available by default in Next.js 14
-  output: process.env.NODE_ENV === 'production' && process.env.STATIC_EXPORT === 'true' ? 'export' : 'standalone',
+  // Vercel handles output automatically - don't override unless needed
+  output: process.env.STATIC_EXPORT === 'true' ? 'export' : undefined,
   poweredByHeader: false,
   reactStrictMode: true,
   swcMinify: true,
@@ -11,8 +11,8 @@ const nextConfig = {
     unoptimized: process.env.STATIC_EXPORT === 'true'
   },
 
-  // Trailing slash for consistent routing
-  trailingSlash: true,
+  // Remove trailing slash for better Vercel compatibility
+  trailingSlash: false,
 
   // Environment variables
   env: {
