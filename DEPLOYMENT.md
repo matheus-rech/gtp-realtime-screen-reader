@@ -79,6 +79,13 @@ Vercel is ideal for the frontend deployment with serverless functions.
 2. Navigate to frontend: `cd apps/frontend`
 3. Deploy: `vercel --prod`
 
+#### Configuration
+The repository includes an optimized `vercel.json` configuration that:
+- Uses monorepo-aware build commands
+- Lets Vercel auto-detect Next.js framework settings
+- Avoids output directory overrides for better compatibility
+- Includes security headers
+
 #### Environment Variables
 Set in Vercel dashboard:
 - `NEXT_PUBLIC_BACKEND_URL`: Your backend URL
@@ -255,6 +262,13 @@ git subtree push --prefix apps/backend heroku main
    - Monitor memory usage
    - Optimize frame rate settings
    - Check Redis connection
+
+5. **Vercel "Routes Manifest Could Not Be Found" Error**
+   - Ensure `vercel.json` doesn't override `outputDirectory` unnecessarily
+   - Verify `buildCommand` is compatible with your project structure
+   - For monorepos, use workspace-aware build commands
+   - Avoid conflicting Next.js output modes (e.g., `standalone` with Vercel)
+   - This error is resolved in the current configuration
 
 ### Logs
 - Frontend: Check browser console and Vercel/Netlify logs
