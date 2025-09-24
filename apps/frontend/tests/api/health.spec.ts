@@ -9,6 +9,6 @@ describe('GET /api/health', () => {
     const payload = await response.json();
     expect(payload).toEqual({ status: 'ok' });
 
-    expect(response.headers.get('cache-control')).toBe('no-store, max-age=0');
+    expect(response.headers.get('Cache-Control')).toBe('no-store, max-age=0');
   });
 });
