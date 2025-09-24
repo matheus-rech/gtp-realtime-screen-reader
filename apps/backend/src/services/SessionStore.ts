@@ -10,7 +10,7 @@ type SessionRecord = {
 };
 
 export class SessionStore {
-  private readonly redis: RedisClientType | null = null;
+  private redis: RedisClientType | null = null;
   private readonly fallbackStore = new Map<string, SessionRecord>();
 
   constructor() {
@@ -18,7 +18,7 @@ export class SessionStore {
       const client = createClient({ url: env.redisUrl });
       client.on('error', (error) => logger.error('Redis connection error', { error }));
       client.connect().catch((error) => logger.error('Failed to connect to Redis', { error }));
-      this.redis = client;
+      this.redis = client as RedisClientType;
     }
   }
 
