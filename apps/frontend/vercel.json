@@ -4,12 +4,6 @@
   "framework": "nextjs",
   "installCommand": "npm install",
   "devCommand": "npm run dev",
-
-  "functions": {
-    "apps/frontend/app/**/*.{js,ts,jsx,tsx}": {
-      "runtime": "@vercel/node@3.0.0"
-    }
-  },
   "headers": [
     {
       "source": "/(.*)",
