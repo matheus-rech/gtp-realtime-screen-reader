@@ -7,7 +7,7 @@ export function GET() {
     { status: 'ok' },
     {
       headers: {
-        'Cache-Control': 'no-store, max-age=0',
+        'Cache-Control': 'no-cache, no-store, must-revalidate, max-age=0',
       },
     },
   );
