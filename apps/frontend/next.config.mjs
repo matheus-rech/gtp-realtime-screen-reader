@@ -11,8 +11,8 @@ const nextConfig = {
     unoptimized: process.env.STATIC_EXPORT === 'true'
   },
 
-  // Trailing slash for consistent routing
-  trailingSlash: true,
+  // Remove trailing slash for better Vercel compatibility
+  trailingSlash: false,
 
   // Environment variables
   env: {
