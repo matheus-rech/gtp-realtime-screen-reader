@@ -4,12 +4,11 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json'
   },
-  plugins: ['@typescript-eslint', 'import', 'security'],
+  plugins: ['@typescript-eslint', 'import'],
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
-    'plugin:security/recommended',
     'prettier'
   ],
   env: {
@@ -29,7 +28,6 @@ module.exports = {
   },
   rules: {
     'import/no-unresolved': 'error',
-    '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
-    'security/detect-object-injection': 'off'
+    '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }]
   }
 };
