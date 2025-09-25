@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 export type LogLevel = 'info' | 'warn' | 'error' | 'debug';
 
 const log = (level: LogLevel, message: string, meta?: Record<string, unknown>): void => {
