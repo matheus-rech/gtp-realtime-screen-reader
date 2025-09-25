@@ -24,7 +24,7 @@ export default [
       'import': importPlugin
     },
     rules: {
-      ...tseslint.configs.recommended.rules,
+      ...tseslint.configs['recommended-type-checked'].rules,
       'import/no-unresolved': 'error',
       '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }]
     },
